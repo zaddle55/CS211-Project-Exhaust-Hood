@@ -18,7 +18,6 @@ print("可用串口：")
 for port, desc, hwid in sorted(ports):
     print(f"{port}: {desc} [{hwid}]")
 
-# 打开可用串口
 ser = None
 for port, desc, hwid in sorted(ports):
     try:
@@ -27,7 +26,6 @@ for port, desc, hwid in sorted(ports):
     except serial.SerialException:
         pass
 
-# 确保串口打开
 if ser.is_open:
     print(f"串口 {serial_port} 已打开, 波特率 {baud_rate}")
 
@@ -139,21 +137,31 @@ def update(status, set_state_c, set_position, aval, light, alert, sys_time, work
         elif state == 2:
             btn.config(bg="gray")
 
+buttons = []
+button_names = [
+    "电源 (P)", "菜单 (Space)", "自清洁 (C)", "恢复出厂模式 (R)", "照明 (L)", 
+    "一级档位 (1)", "二级档位 (2)", "三级档位 (3)", "上 (W)", "下 (S)", 
+    "左 (A)", "右 (D)", "确认 (M)", "高级设置 (E)", "[查] 累计工作时间 (O)", 
+    "[设/查] 最大工作时间 (V)", "[设/查] 手势检查时间 (X)", "时间设置 (N)", "手动清洁 (T)"
+]
+button_row = [0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,8,9,8]
+button_col = [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0]
+num_buttons = len(button_names)
+
 def get_button_states(status, input):
-    # 定义17个按钮的初始状态，值为0，表示所有按键最初不可用
-    button_states = [0] * 18
+    button_states = [0] * num_buttons
 
     # 按钮可用性字典
     available_buttons = {
         0: [0, 10],  # 关机状态: 电源、左
-        1: [0, 1, 11, 12, 14, 15, 16, 17],  # 待机状态: 电源、右、时间设置、菜单
-        2: [2, 5, 6, 7, 3, 13],  # 待机菜单: 自清洁、一级档位、二级档位、三级档位、手动清洗、高级设置
+        1: [0, 1, 11, 12, 14, 15, 16, 17],  # 待机状态: 电源、右、时间设置、菜单、[查] 累计工作时间、[查] 最大工作时间、[查] 手势检查时间、确认
+        2: [2, 5, 6, 7, 3, 13, 19],  # 待机菜单: 自清洁、一级档位、二级档位、三级档位、高级设置、手动清洁、出厂设置
         3: [],  # 自清洁模式: 所有按键不可用
         4: [1, 6],  # 风力一级档位: 菜单、二级档位
         5: [1, 5],  # 风力二级档位: 菜单、一级档位
         6: [1],  # 风力三级档位: 菜单
         7: [],  # 飓风强制待机模式: 所有按键不可用
-        8: [1, 15, 16, 12],  # 高级设置模式: 菜单
+        8: [1, 15, 16, 12],  # 高级设置模式: 菜单、[设] 最大工作时间、[设] 手势检查时间、确认
         9: [11],  # 开机检查状态: 右
         10: [10],  # 关机检查状态: 左
         11: [1, 8, 9, 10, 11],  # 时间设置: 上、下
@@ -161,14 +169,14 @@ def get_button_states(status, input):
 
     available = available_buttons.get(status, [])
     if status != 0 and status != 9:
-        available.extend([4])  # 照明、累计工作时间、最大工作时间、手势检查时间始终可用
+        available.extend([4])  # 照明始终可用
 
     available = list(set(available))
 
-    for i in range(18):
-        if input[i] == 1:  # 如果按钮被按下
+    for i in range(num_buttons):
+        if input[i] == 1:  # 被按下
             button_states[i] = 2
-        elif i in available:  # 如果按钮可用
+        elif i in available:  # 可用
             button_states[i] = 1
         else:
             button_states[i] = 0
@@ -229,21 +237,11 @@ notes_text.config(state=tk.DISABLED)
 right_frame = tk.Frame(root, width=320, height=540, bg=bg_color)
 right_frame.pack(side=tk.RIGHT, fill=tk.BOTH)
 
-# 生成按钮矩形
-buttons = []
-button_names = [
-    "电源 (P)", "菜单 (Space)", "自清洁 (C)", "恢复出厂模式 (R)", "照明 (L)", 
-    "一级档位 (1)", "二级档位 (2)", "三级档位 (3)", "上 (W)", "下 (S)", 
-    "左 (A)", "右 (D)", "退出查看 (M)", "高级设置 (E)", "[查] 累计工作时间 (O)", 
-    "[设/查] 最大工作时间 (V)", "[设/查] 手势检查时间 (X)", "时间设置 (N)"
-]
 
-for i in range(18):
+for i in range(num_buttons):
     btn = tk.Label(right_frame, text=button_names[i], font=("Arial", 12), bg="lightgreen", width=18, height=2, anchor='center')
-    row = i
-    if i>=8:
-        row = i - 8
-    col = i >= 8
+    row = button_row[i]
+    col = button_col[i]
     btn.grid(row=row, column=col, padx=10, pady=5)
     buttons.append(btn)
 
@@ -304,7 +302,7 @@ def upd():
                 check_time = data[23]+(data[22]<<8)+(data[21]<<16)+(data[20]<<24)
                 set_position = (data[1] & 0b11000000)>>6
                 set_state_c = (data[1] & 0b00110000)>>4
-                r_input = [0 for _ in range(18)]
+                r_input = [0 for _ in range(num_buttons)]
                 r_input[0] = power
                 update(status, set_state_c, set_position, gear3_aval, light, alert, sys_time, work_time, timer/100, alert_time, check_time, r_input, "")
             else:
