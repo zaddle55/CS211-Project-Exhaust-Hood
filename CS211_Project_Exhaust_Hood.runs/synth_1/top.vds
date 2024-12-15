@@ -1,0 +1,521 @@
+#-----------------------------------------------------------
+# Vivado v2024.1.1 (64-bit)
+# SW Build 5094488 on Fri Jun 14 08:59:21 MDT 2024
+# IP Build 5091682 on Fri Jun 14 16:55:04 MDT 2024
+# SharedData Build 5094118 on Fri Jun 14 01:09:43 MDT 2024
+# Start of session at: Sun Dec 15 14:00:28 2024
+# Process ID: 13964
+# Current directory: C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.runs/synth_1/top.vds
+# Journal file: C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.runs/synth_1\vivado.jou
+# Running On        :Zaddle-00PCIR
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :22631
+# Processor Detail  :13th Gen Intel(R) Core(TM) i5-13600KF
+# CPU Frequency     :3494 MHz
+# CPU Physical cores:14
+# CPU Logical cores :20
+# Host memory       :34163 MB
+# Swap memory       :2147 MB
+# Total Virtual     :36311 MB
+# Available Virtual :14731 MB
+#-----------------------------------------------------------
+source top.tcl -notrace
+create_project: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 532.406 ; gain = 203.406
+Command: synth_design -top top -part xc7a35tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcsg324-1
+INFO: [Device 21-9227] Part: xc7a35tcsg324-1 does not have CEAM library.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 27920
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1382.824 ; gain = 446.387
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'ps2_input' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:81]
+INFO: [Synth 8-9937] previous definition of design element 'ps2_input' is here [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:81]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'key_pos_filter' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:120]
+INFO: [Synth 8-9937] previous definition of design element 'key_pos_filter' is here [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:120]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'ps2_keyboard_data' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:181]
+INFO: [Synth 8-9937] previous definition of design element 'ps2_keyboard_data' is here [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:181]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'ps2_data_reader' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:359]
+INFO: [Synth 8-9937] previous definition of design element 'ps2_data_reader' is here [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:359]
+WARNING: [Synth 8-6901] identifier 'BYTES' is used before its declaration [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1446]
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ps2_input' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ps2_keyboard_data' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:122]
+INFO: [Synth 8-6155] done synthesizing module 'ps2_keyboard_data' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:122]
+INFO: [Synth 8-6157] synthesizing module 'ps2_data_reader' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:183]
+INFO: [Synth 8-6155] done synthesizing module 'ps2_data_reader' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:183]
+INFO: [Synth 8-6157] synthesizing module 'key_pos_filter' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:83]
+	Parameter N bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'key_pos_filter' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:83]
+INFO: [Synth 8-6155] done synthesizing module 'ps2_input' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:23]
+WARNING: [Synth 8-7071] port '_overflow' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:141]
+WARNING: [Synth 8-7071] port '_ready' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:141]
+WARNING: [Synth 8-7071] port '_nextdata_n' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:141]
+WARNING: [Synth 8-7071] port '_data' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:141]
+WARNING: [Synth 8-7023] instance 'translator' of module 'ps2_input' has 9 connections declared, but only 5 given [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:141]
+INFO: [Synth 8-6157] synthesizing module 'handle_toggle' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:756]
+INFO: [Synth 8-6155] done synthesizing module 'handle_toggle' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:756]
+WARNING: [Synth 8-689] width (3) of port connection 'state' does not match port width (2) of module 'handle_toggle' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:155]
+INFO: [Synth 8-6157] synthesizing module 'CS211_Project' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:779]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:920]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:938]
+INFO: [Synth 8-6157] synthesizing module 'state_machine' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1214]
+WARNING: [Synth 8-567] referenced signal 'interval' should be on the sensitivity list [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1431]
+INFO: [Synth 8-6155] done synthesizing module 'state_machine' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1214]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1099]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1160]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1169]
+INFO: [Synth 8-6157] synthesizing module 'uart_output' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1443]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1537]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1537]
+INFO: [Synth 8-6155] done synthesizing module 'uart_output' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1443]
+WARNING: [Synth 8-7071] port 'output_done' of module 'uart_output' is unconnected for instance 'my_output_inst' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1204]
+WARNING: [Synth 8-7023] instance 'my_output_inst' of module 'uart_output' has 6 connections declared, but only 5 given [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1204]
+INFO: [Synth 8-6155] done synthesizing module 'CS211_Project' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:779]
+WARNING: [Synth 8-689] width (3) of port connection 'light_button' does not match port width (2) of module 'CS211_Project' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:234]
+INFO: [Synth 8-6157] synthesizing module 'handle_display' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:296]
+INFO: [Synth 8-6157] synthesizing module 'time_format' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:708]
+INFO: [Synth 8-6155] done synthesizing module 'time_format' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:708]
+INFO: [Synth 8-6157] synthesizing module 'dec_format' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:733]
+INFO: [Synth 8-6155] done synthesizing module 'dec_format' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:733]
+INFO: [Synth 8-6157] synthesizing module 'seg_display' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:576]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:659]
+INFO: [Synth 8-6155] done synthesizing module 'seg_display' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:576]
+WARNING: [Synth 8-689] width (32) of port connection 'data' does not match port width (33) of module 'seg_display' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:559]
+INFO: [Synth 8-6157] synthesizing module 'frequency_divider' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:682]
+INFO: [Synth 8-6155] done synthesizing module 'frequency_divider' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:682]
+INFO: [Synth 8-6155] done synthesizing module 'handle_display' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:296]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:23]
+WARNING: [Synth 8-7137] Register fifo_reg in module ps2_keyboard_data has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-7137] Register buffer_reg in module ps2_keyboard_data has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:163]
+WARNING: [Synth 8-4767] Trying to implement RAM 'fifo_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "fifo_reg" dissolved into registers
+WARNING: [Synth 8-7137] Register out_valid_reg in module CS211_Project has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:862]
+WARNING: [Synth 8-7137] Register power_tick_reg in module CS211_Project has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:870]
+WARNING: [Synth 8-3848] Net disp_state in module/entity handle_display does not have driver. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:324]
+WARNING: [Synth 8-3848] Net debug_clock_state in module/entity top does not have driver. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:39]
+WARNING: [Synth 8-7129] Port data[32] in module seg_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port disp_state[2] in module handle_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port disp_state[1] in module handle_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port disp_state[0] in module handle_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port left_button in module CS211_Project is either unconnected or has no load
+WARNING: [Synth 8-7129] Port right_button in module CS211_Project is either unconnected or has no load
+WARNING: [Synth 8-7129] Port overflow in module ps2_data_reader is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_clock_state[2] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_clock_state[1] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_clock_state[0] in module top is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1503.156 ; gain = 566.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1503.156 ; gain = 566.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1503.156 ; gain = 566.719
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1503.156 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc]
+WARNING: [Vivado 12-584] No ports matched 'gear_button[2]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:1]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:1]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gear_button[1]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gear_button[0]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'status[2]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:4]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:4]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'status[1]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:5]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:5]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'status[0]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:6]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'light_button[1]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:7]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:7]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'light_button[0]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:8]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:8]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'light'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:13]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'power_on_button'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'menu_button'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:15]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:15]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'clean_button'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:16]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gear_button[0]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:17]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gear_button[2]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gear_button[1]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'light_button[1]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:20]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:20]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'light_button[0]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:21]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:21]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'menu_button'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:22]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:22]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'power_on_button'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:23]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:23]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'clean_button'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:24]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:24]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'status[3]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:26]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:26]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'alert'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:27]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:27]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'alert'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:28]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:28]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'power_off_button'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:29]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:29]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'power_off_button'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:30]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:30]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[15]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:98]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:98]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[14]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:99]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[13]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[12]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[11]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[10]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[9]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[8]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[7]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[6]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[5]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:108]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:108]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[4]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:109]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:109]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[3]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:110]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:110]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[2]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[1]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'debug_output_grp[0]'. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:113]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc:113]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1607.242 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1607.242 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1607.242 ; gain = 670.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1607.242 ; gain = 670.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1607.242 ; gain = 670.805
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'set_state_c_reg' in module 'CS211_Project'
+INFO: [Synth 8-802] inferred FSM for state register 'display_state_reg' in module 'seg_display'
+INFO: [Synth 8-802] inferred FSM for state register 'disp_state_c_reg' in module 'handle_display'
+WARNING: [Synth 8-327] inferring latch for variable 'output_grp_n_reg' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:261]
+WARNING: [Synth 8-327] inferring latch for variable 'next_output_state_reg' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v:262]
+WARNING: [Synth 8-327] inferring latch for variable 'nxt_status_reg' [C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v:1311]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+          SET_STATE_IDLE |                               00 |                               00
+          SET_STATE_NORM |                               01 |                               01
+           SET_STATE_INT |                               10 |                               10
+            SET_STATE_CT |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'set_state_c_reg' using encoding 'sequential' in module 'CS211_Project'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+                  iSTATE |                             0001 |                             0001
+                 iSTATE0 |                             0010 |                             0010
+                 iSTATE1 |                             0100 |                             0100
+                 iSTATE2 |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'display_state_reg' in module 'seg_display'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   CLOCK |                              000 |                              000
+               CHECKTIME |                              001 |                              011
+                 INTEVAL |                              010 |                              001
+                WORKTIME |                              011 |                              010
+              COUNT_DOWN |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'disp_state_c_reg' using encoding 'sequential' in module 'handle_display'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1607.242 ; gain = 670.805
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'left_toggle' (handle_toggle) to 'right_toggle'
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 12    
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 3     
+	   2 Input   14 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 2     
++---XORs : 
+	                9 Bit    Wide XORs := 1     
++---Registers : 
+	              192 Bit    Registers := 1     
+	               32 Bit    Registers := 12    
+	               10 Bit    Registers := 1     
+	                8 Bit    Registers := 14    
+	                4 Bit    Registers := 4     
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 10    
+	                1 Bit    Registers := 24    
++---Multipliers : 
+	               7x32  Multipliers := 1     
++---Muxes : 
+	   2 Input  192 Bit        Muxes := 1     
+	   5 Input   32 Bit        Muxes := 1     
+	  24 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 13    
+	   4 Input   32 Bit        Muxes := 3     
+	   6 Input   32 Bit        Muxes := 1     
+	   2 Input   17 Bit        Muxes := 1     
+	   2 Input   14 Bit        Muxes := 2     
+	   4 Input   12 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 3     
+	   5 Input    8 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 5     
+	   5 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 9     
+	   3 Input    4 Bit        Muxes := 3     
+	   2 Input    3 Bit        Muxes := 2     
+	   6 Input    3 Bit        Muxes := 1     
+	   5 Input    3 Bit        Muxes := 2     
+	  20 Input    3 Bit        Muxes := 1     
+	   3 Input    3 Bit        Muxes := 3     
+	   2 Input    2 Bit        Muxes := 15    
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 36    
+	   3 Input    1 Bit        Muxes := 3     
+	  13 Input    1 Bit        Muxes := 1     
+	   5 Input    1 Bit        Muxes := 2     
+	   4 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port debug_clock_state[2] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_clock_state[1] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_clock_state[0] in module top is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:28 . Memory (MB): peak = 1607.242 ; gain = 670.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:32 . Memory (MB): peak = 1607.242 ; gain = 670.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:32 . Memory (MB): peak = 1607.242 ; gain = 670.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:33 . Memory (MB): peak = 1607.242 ; gain = 670.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:10 ; elapsed = 00:00:37 . Memory (MB): peak = 1613.863 ; gain = 677.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:10 ; elapsed = 00:00:37 . Memory (MB): peak = 1613.863 ; gain = 677.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:10 ; elapsed = 00:00:37 . Memory (MB): peak = 1613.863 ; gain = 677.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:10 ; elapsed = 00:00:37 . Memory (MB): peak = 1613.863 ; gain = 677.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:37 . Memory (MB): peak = 1613.863 ; gain = 677.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:38 . Memory (MB): peak = 1613.863 ; gain = 677.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |  1400|
+|3     |LUT1   |   466|
+|4     |LUT2   |  1469|
+|5     |LUT3   |  2229|
+|6     |LUT4   |  2303|
+|7     |LUT5   |   847|
+|8     |LUT6   |  1675|
+|9     |MUXF7  |    29|
+|10    |MUXF8  |     1|
+|11    |FDCE   |   689|
+|12    |FDPE   |    21|
+|13    |FDRE   |   112|
+|14    |LD     |    22|
+|15    |IBUF   |     4|
+|16    |OBUF   |    34|
+|17    |OBUFT  |     3|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:38 . Memory (MB): peak = 1613.863 ; gain = 677.426
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 7 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:36 . Memory (MB): peak = 1613.863 ; gain = 573.340
+Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:38 . Memory (MB): peak = 1613.863 ; gain = 677.426
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.127 . Memory (MB): peak = 1623.047 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1452 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1626.648 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 22 instances were transformed.
+  LD => LDCE: 22 instances
+
+Synth Design complete | Checksum: 78df7af3
+INFO: [Common 17-83] Releasing license: Synthesis
+63 Infos, 77 Warnings, 45 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:49 . Memory (MB): peak = 1626.648 ; gain = 1094.242
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1626.648 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.runs/synth_1/top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 15 14:01:30 2024...
