@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1.1 (win64) Build 5094488 Fri Jun 14 08:59:21 MDT 2024
-| Date             : Sun Dec 15 16:27:41 2024
+| Date             : Mon Dec 16 02:19:27 2024
 | Host             : Zaddle-00PCIR running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.776        |
+| Total On-Chip Power (W)  | 1.708        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.700        |
+| Dynamic (W)              | 1.633        |
 | Device Static (W)        | 0.076        |
 | Effective TJA (C/W)      | 4.8          |
-| Max Ambient (C)          | 76.5         |
-| Junction Temperature (C) | 33.5         |
+| Max Ambient (C)          | 76.8         |
+| Junction Temperature (C) | 33.2         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,17 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.832 |    11366 |       --- |             --- |
-|   LUT as Logic |     0.723 |     7036 |     20800 |           33.83 |
-|   CARRY4       |     0.056 |     1392 |      8150 |           17.08 |
-|   Register     |     0.044 |      855 |     41600 |            2.06 |
+| Slice Logic    |     0.804 |    11376 |       --- |             --- |
+|   LUT as Logic |     0.698 |     7056 |     20800 |           33.92 |
+|   CARRY4       |     0.053 |     1392 |      8150 |           17.08 |
+|   Register     |     0.044 |      859 |     41600 |            2.06 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
 |   F7/F8 Muxes  |     0.004 |       30 |     32600 |            0.09 |
 |   Others       |     0.000 |       39 |       --- |             --- |
-| Signals        |     0.820 |     9029 |       --- |             --- |
+| Signals        |     0.781 |     9030 |       --- |             --- |
 | I/O            |     0.048 |       41 |       210 |           19.52 |
 | Static Power   |     0.076 |          |           |                 |
-| Total          |     1.776 |          |           |                 |
+| Total          |     1.708 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     1.677 |       1.664 |      0.013 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     1.610 |       1.597 |      0.013 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.014 |       0.001 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.011 |       0.010 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -139,18 +139,18 @@ Table of Contents
 +------------------------+-----------+
 | Name                   | Power (W) |
 +------------------------+-----------+
-| top                    |     1.700 |
-|   display_handle       |     0.396 |
+| top                    |     1.633 |
+|   display_handle       |     0.394 |
 |     count_down_format  |     0.003 |
-|     freq_div_inst      |     0.370 |
-|   main                 |     0.542 |
-|     state_machine_inst |     0.088 |
+|     freq_div_inst      |     0.369 |
+|   main                 |     0.470 |
+|     state_machine_inst |     0.068 |
 |   my_output_inst       |     0.090 |
-|     uart_tx_inst       |     0.074 |
+|     uart_tx_inst       |     0.075 |
 |   power_toggle         |     0.001 |
-|   translator           |     0.546 |
-|     ps2_data_inst      |     0.223 |
-|     ps2_reader_inst    |     0.322 |
+|   translator           |     0.553 |
+|     ps2_data_inst      |     0.204 |
+|     ps2_reader_inst    |     0.348 |
 +------------------------+-----------+
 
 

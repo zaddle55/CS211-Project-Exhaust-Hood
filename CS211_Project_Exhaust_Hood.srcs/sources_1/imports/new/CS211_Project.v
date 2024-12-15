@@ -87,7 +87,8 @@ module top(
     wire            up_button;
     wire            down_button;
     wire            set_button;            // advanced setting
-    wire            reset_button;          // reset worktime
+    wire            reset_button;          // reset to default
+    wire            reset_wt_button;       // reset worktime
     wire            disp_wt_button;        // display worktime
     wire            disp_int_button;       // button for interval lookup
     wire            disp_ct_button;        // button for checktime lookup
@@ -120,6 +121,7 @@ module top(
     assign disp_ct_button  = output_grp[X];
     assign disp_int_button = output_grp[V];
     assign disp_clk_btn    = output_grp[M];
+    assign reset_wt_button = output_grp[T];
     assign power_button    = power_button_state[1];
 
     // wire net for output of main module
@@ -249,6 +251,7 @@ module top(
         .light_button(light_button),
         .gear_button(gear_button),
         .reset_button(reset_button),
+        .reset_wt_button(reset_wt_button),
         .set_button(set_button),
         .set_int_button(disp_int_button),
         .set_ct_button(disp_ct_button),
@@ -334,7 +337,8 @@ module Exhaust_Hood(
     input           clean_button ,          // self clean button
     input [1:0]     light_button ,          // light control button
     input [2:0]     gear_button ,           // gear select button
-    input           reset_button ,
+    input           reset_button ,          // reset to default
+    input           reset_wt_button ,       // reset worktime
     input           set_button ,
     input           set_int_button ,
     input           set_ct_button ,
@@ -550,7 +554,7 @@ module Exhaust_Hood(
         .power_off_button(power_off_button),
         .menu_button(menu_button),
         .clean_button(clean_button),
-        .reset_button(reset_button),
+        .reset_button(reset_button | reset_wt_button),
         .set_button(set_button),
         .set_clk_button(set_clk_button),
         .gear_button(gear_button),
