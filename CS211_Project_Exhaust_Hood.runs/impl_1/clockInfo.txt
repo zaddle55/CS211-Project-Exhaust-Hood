@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1.1
-| Date         : Sun Dec 15 15:16:39 2024
+| Date         : Sun Dec 15 16:27:19 2024
 | Host         : Zaddle-00PCIR
 | Design       : design_1
 | Device       : xc7a35t-csg324-1--

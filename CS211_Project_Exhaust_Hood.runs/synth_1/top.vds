@@ -3,8 +3,8 @@
 # SW Build 5094488 on Fri Jun 14 08:59:21 MDT 2024
 # IP Build 5091682 on Fri Jun 14 16:55:04 MDT 2024
 # SharedData Build 5094118 on Fri Jun 14 01:09:43 MDT 2024
-# Start of session at: Sun Dec 15 15:15:21 2024
-# Process ID: 37764
+# Start of session at: Sun Dec 15 16:25:20 2024
+# Process ID: 13244
 # Current directory: C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.runs/synth_1/top.vds
@@ -19,10 +19,10 @@
 # Host memory       :34163 MB
 # Swap memory       :2147 MB
 # Total Virtual     :36311 MB
-# Available Virtual :12352 MB
+# Available Virtual :10183 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
-create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 531.922 ; gain = 203.164
+create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 530.320 ; gain = 201.102
 Command: read_checkpoint -auto_incremental -incremental C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/utils_1/imports/synth_1/top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -36,9 +36,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 9160
+INFO: [Synth 8-7075] Helper process launched with PID 26988
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1384.469 ; gain = 448.004
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1385.055 ; gain = 449.148
 ---------------------------------------------------------------------------------
 CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'ps2_input' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:81]
 INFO: [Synth 8-9937] previous definition of design element 'ps2_input' is here [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:81]
@@ -48,8 +48,8 @@ CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'ps2_
 INFO: [Synth 8-9937] previous definition of design element 'ps2_keyboard_data' is here [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:181]
 CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'ps2_data_reader' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:359]
 INFO: [Synth 8-9937] previous definition of design element 'ps2_data_reader' is here [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:359]
-WARNING: [Synth 8-6901] identifier 'BYTES' is used before its declaration [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1468]
-INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:23]
+INFO: [Synth 8-11241] undeclared symbol 'debug_set_state', assumed default net type 'wire' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:624]
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:25]
 INFO: [Synth 8-6157] synthesizing module 'ps2_input' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:23]
 INFO: [Synth 8-6157] synthesizing module 'ps2_keyboard_data' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:122]
 INFO: [Synth 8-6155] done synthesizing module 'ps2_keyboard_data' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:122]
@@ -59,77 +59,76 @@ INFO: [Synth 8-6157] synthesizing module 'key_pos_filter' [C:/Users/Administrato
 	Parameter N bound to: 32 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'key_pos_filter' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:83]
 INFO: [Synth 8-6155] done synthesizing module 'ps2_input' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:23]
-WARNING: [Synth 8-7071] port '_overflow' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:145]
-WARNING: [Synth 8-7071] port '_ready' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:145]
-WARNING: [Synth 8-7071] port '_nextdata_n' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:145]
-WARNING: [Synth 8-7071] port '_data' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:145]
-WARNING: [Synth 8-7023] instance 'translator' of module 'ps2_input' has 9 connections declared, but only 5 given [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:145]
-INFO: [Synth 8-6157] synthesizing module 'handle_toggle' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:768]
-INFO: [Synth 8-6155] done synthesizing module 'handle_toggle' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:768]
-WARNING: [Synth 8-689] width (3) of port connection 'state' does not match port width (2) of module 'handle_toggle' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:166]
-INFO: [Synth 8-6157] synthesizing module 'CS211_Project' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:791]
-INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:933]
-INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:951]
-INFO: [Synth 8-6157] synthesizing module 'state_machine' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1236]
-WARNING: [Synth 8-567] referenced signal 'interval' should be on the sensitivity list [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1453]
-INFO: [Synth 8-6155] done synthesizing module 'state_machine' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1236]
-INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1112]
-INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1182]
-INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1191]
-INFO: [Synth 8-6157] synthesizing module 'uart_output' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1465]
-INFO: [Synth 8-6157] synthesizing module 'uart_tx' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1559]
-INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1559]
-INFO: [Synth 8-6155] done synthesizing module 'uart_output' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1465]
-WARNING: [Synth 8-7071] port 'output_done' of module 'uart_output' is unconnected for instance 'my_output_inst' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1226]
-WARNING: [Synth 8-7023] instance 'my_output_inst' of module 'uart_output' has 6 connections declared, but only 5 given [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1226]
-INFO: [Synth 8-6155] done synthesizing module 'CS211_Project' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:791]
-WARNING: [Synth 8-689] width (3) of port connection 'light_button' does not match port width (2) of module 'CS211_Project' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:245]
-INFO: [Synth 8-6157] synthesizing module 'handle_display' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:308]
-INFO: [Synth 8-6157] synthesizing module 'time_format' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:720]
-INFO: [Synth 8-6155] done synthesizing module 'time_format' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:720]
-INFO: [Synth 8-6157] synthesizing module 'dec_format' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:745]
-INFO: [Synth 8-6155] done synthesizing module 'dec_format' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:745]
-INFO: [Synth 8-6157] synthesizing module 'seg_display' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:588]
-INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:671]
-INFO: [Synth 8-6155] done synthesizing module 'seg_display' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:588]
-WARNING: [Synth 8-689] width (32) of port connection 'data' does not match port width (33) of module 'seg_display' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:571]
-INFO: [Synth 8-6157] synthesizing module 'frequency_divider' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:694]
-INFO: [Synth 8-6155] done synthesizing module 'frequency_divider' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:694]
-INFO: [Synth 8-6155] done synthesizing module 'handle_display' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:308]
-INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:23]
+WARNING: [Synth 8-7071] port '_overflow' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:149]
+WARNING: [Synth 8-7071] port '_ready' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:149]
+WARNING: [Synth 8-7071] port '_nextdata_n' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:149]
+WARNING: [Synth 8-7071] port '_data' of module 'ps2_input' is unconnected for instance 'translator' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:149]
+WARNING: [Synth 8-7023] instance 'translator' of module 'ps2_input' has 9 connections declared, but only 5 given [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:149]
+INFO: [Synth 8-6157] synthesizing module 'handle_toggle' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:483]
+INFO: [Synth 8-6155] done synthesizing module 'handle_toggle' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:483]
+WARNING: [Synth 8-689] width (3) of port connection 'state' does not match port width (2) of module 'handle_toggle' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:170]
+INFO: [Synth 8-6157] synthesizing module 'Exhaust_Hood' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:322]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:481]
+INFO: [Synth 8-6157] synthesizing module 'state_machine' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:767]
+WARNING: [Synth 8-567] referenced signal 'interval' should be on the sensitivity list [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:984]
+INFO: [Synth 8-6155] done synthesizing module 'state_machine' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:767]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:638]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:708]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:717]
+INFO: [Synth 8-6155] done synthesizing module 'Exhaust_Hood' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:322]
+WARNING: [Synth 8-689] width (3) of port connection 'light_button' does not match port width (2) of module 'Exhaust_Hood' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:249]
+INFO: [Synth 8-6157] synthesizing module 'handle_display' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:23]
+INFO: [Synth 8-6157] synthesizing module 'time_format' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:435]
+INFO: [Synth 8-6155] done synthesizing module 'time_format' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:435]
+INFO: [Synth 8-6157] synthesizing module 'dec_format' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:460]
+INFO: [Synth 8-6155] done synthesizing module 'dec_format' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:460]
+INFO: [Synth 8-6157] synthesizing module 'seg_display' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:303]
+INFO: [Synth 8-226] default block is never used [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:386]
+INFO: [Synth 8-6155] done synthesizing module 'seg_display' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:303]
+WARNING: [Synth 8-689] width (32) of port connection 'data' does not match port width (33) of module 'seg_display' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:286]
+INFO: [Synth 8-6157] synthesizing module 'frequency_divider' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:409]
+INFO: [Synth 8-6155] done synthesizing module 'frequency_divider' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:409]
+INFO: [Synth 8-6155] done synthesizing module 'handle_display' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:23]
+INFO: [Synth 8-6157] synthesizing module 'uart_output' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/uart_tx.v:23]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/uart_tx.v:121]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/uart_tx.v:121]
+INFO: [Synth 8-6155] done synthesizing module 'uart_output' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/uart_tx.v:23]
+WARNING: [Synth 8-7071] port 'output_done' of module 'uart_output' is unconnected for instance 'my_output_inst' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:312]
+WARNING: [Synth 8-7023] instance 'my_output_inst' of module 'uart_output' has 6 connections declared, but only 5 given [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:312]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:25]
 WARNING: [Synth 8-7137] Register fifo_reg in module ps2_keyboard_data has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
 WARNING: [Synth 8-7137] Register buffer_reg in module ps2_keyboard_data has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:163]
 WARNING: [Synth 8-4767] Trying to implement RAM 'fifo_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
 Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
 RAM "fifo_reg" dissolved into registers
-WARNING: [Synth 8-7137] Register out_valid_reg in module CS211_Project has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:875]
-WARNING: [Synth 8-7137] Register power_tick_reg in module CS211_Project has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:883]
-WARNING: [Synth 8-3848] Net disp_state in module/entity handle_display does not have driver. [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:336]
-WARNING: [Synth 8-3848] Net debug_clock_state in module/entity top does not have driver. [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:39]
+WARNING: [Synth 8-7137] Register out_valid_reg in module Exhaust_Hood has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:405]
+WARNING: [Synth 8-7137] Register power_tick_reg in module Exhaust_Hood has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:413]
+WARNING: [Synth 8-3848] Net disp_state in module/entity handle_display does not have driver. [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/display.v:51]
+WARNING: [Synth 8-3848] Net debug_clock_state in module/entity top does not have driver. [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:41]
 WARNING: [Synth 8-7129] Port data[32] in module seg_display is either unconnected or has no load
 WARNING: [Synth 8-7129] Port disp_state[2] in module handle_display is either unconnected or has no load
 WARNING: [Synth 8-7129] Port disp_state[1] in module handle_display is either unconnected or has no load
 WARNING: [Synth 8-7129] Port disp_state[0] in module handle_display is either unconnected or has no load
-WARNING: [Synth 8-7129] Port left_button in module CS211_Project is either unconnected or has no load
-WARNING: [Synth 8-7129] Port right_button in module CS211_Project is either unconnected or has no load
+WARNING: [Synth 8-7129] Port left_button in module Exhaust_Hood is either unconnected or has no load
+WARNING: [Synth 8-7129] Port right_button in module Exhaust_Hood is either unconnected or has no load
 WARNING: [Synth 8-7129] Port overflow in module ps2_data_reader is either unconnected or has no load
 WARNING: [Synth 8-7129] Port debug_clock_state[2] in module top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port debug_clock_state[1] in module top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port debug_clock_state[0] in module top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1505.422 ; gain = 568.957
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1505.641 ; gain = 569.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1505.422 ; gain = 568.957
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1505.641 ; gain = 569.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1505.422 ; gain = 568.957
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1505.641 ; gain = 569.734
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1505.422 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1505.641 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -263,35 +262,35 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1605.086 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1608.660 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1605.086 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1608.660 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1605.086 ; gain = 668.621
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1605.086 ; gain = 668.621
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1605.086 ; gain = 668.621
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'set_state_c_reg' in module 'CS211_Project'
+INFO: [Synth 8-802] inferred FSM for state register 'set_state_c_reg' in module 'Exhaust_Hood'
 INFO: [Synth 8-802] inferred FSM for state register 'display_state_reg' in module 'seg_display'
 INFO: [Synth 8-802] inferred FSM for state register 'disp_state_c_reg' in module 'handle_display'
 WARNING: [Synth 8-327] inferring latch for variable 'output_grp_n_reg' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:261]
 WARNING: [Synth 8-327] inferring latch for variable 'next_output_state_reg' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v:262]
-WARNING: [Synth 8-327] inferring latch for variable 'nxt_status_reg' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:1333]
+WARNING: [Synth 8-327] inferring latch for variable 'nxt_status_reg' [C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v:864]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -300,7 +299,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'nxt_status_reg' [C:/Users/A
            SET_STATE_INT |                               10 |                               10
             SET_STATE_CT |                               11 |                               11
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'set_state_c_reg' using encoding 'sequential' in module 'CS211_Project'
+INFO: [Synth 8-3354] encoded FSM with state register 'set_state_c_reg' using encoding 'sequential' in module 'Exhaust_Hood'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -322,7 +321,7 @@ INFO: [Synth 8-3898] No Re-encoding of one hot register 'display_state_reg' in m
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'disp_state_c_reg' using encoding 'sequential' in module 'handle_display'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1605.086 ; gain = 668.621
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'left_toggle' (handle_toggle) to 'right_toggle'
 ---------------------------------------------------------------------------------
@@ -332,7 +331,7 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input   32 Bit       Adders := 14    
 	   3 Input   32 Bit       Adders := 1     
-	   2 Input   17 Bit       Adders := 3     
+	   2 Input   17 Bit       Adders := 1     
 	   2 Input   14 Bit       Adders := 1     
 	   2 Input    8 Bit       Adders := 1     
 	   2 Input    4 Bit       Adders := 2     
@@ -355,15 +354,17 @@ Detailed RTL Component Info :
 	   2 Input  192 Bit        Muxes := 1     
 	   5 Input   32 Bit        Muxes := 1     
 	  24 Input   32 Bit        Muxes := 1     
-	   2 Input   32 Bit        Muxes := 14    
-	   4 Input   32 Bit        Muxes := 5     
+	   2 Input   32 Bit        Muxes := 12    
+	   4 Input   32 Bit        Muxes := 4     
 	   6 Input   32 Bit        Muxes := 1     
 	   2 Input   17 Bit        Muxes := 1     
 	   2 Input   14 Bit        Muxes := 2     
+	   2 Input   13 Bit        Muxes := 1     
 	   4 Input   12 Bit        Muxes := 1     
 	   2 Input   10 Bit        Muxes := 3     
 	   5 Input    8 Bit        Muxes := 2     
 	   2 Input    8 Bit        Muxes := 5     
+	   2 Input    7 Bit        Muxes := 1     
 	   5 Input    4 Bit        Muxes := 2     
 	   2 Input    4 Bit        Muxes := 9     
 	   3 Input    4 Bit        Muxes := 3     
@@ -374,11 +375,11 @@ Detailed RTL Component Info :
 	   3 Input    3 Bit        Muxes := 3     
 	   2 Input    2 Bit        Muxes := 16    
 	   4 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 36    
-	   3 Input    1 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 37    
+	   3 Input    1 Bit        Muxes := 2     
 	  13 Input    1 Bit        Muxes := 1     
 	   5 Input    1 Bit        Muxes := 2     
-	   4 Input    1 Bit        Muxes := 6     
+	   4 Input    1 Bit        Muxes := 5     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -399,25 +400,25 @@ WARNING: [Synth 8-7129] Port debug_clock_state[2] in module top is either unconn
 WARNING: [Synth 8-7129] Port debug_clock_state[1] in module top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port debug_clock_state[0] in module top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:28 . Memory (MB): peak = 1605.086 ; gain = 668.621
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:50 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:32 . Memory (MB): peak = 1605.086 ; gain = 668.621
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:57 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:32 . Memory (MB): peak = 1605.086 ; gain = 668.621
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:57 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:33 . Memory (MB): peak = 1605.086 ; gain = 668.621
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:59 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -435,37 +436,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:36 . Memory (MB): peak = 1609.023 ; gain = 672.559
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:01:02 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:36 . Memory (MB): peak = 1609.023 ; gain = 672.559
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:01:02 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:36 . Memory (MB): peak = 1609.023 ; gain = 672.559
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:01:02 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:36 . Memory (MB): peak = 1609.023 ; gain = 672.559
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:01:03 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:36 . Memory (MB): peak = 1609.023 ; gain = 672.559
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:01:03 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:36 . Memory (MB): peak = 1609.023 ; gain = 672.559
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:01:03 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -482,14 +483,14 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     1|
-|2     |CARRY4 |  1400|
-|3     |LUT1   |   466|
-|4     |LUT2   |  1523|
-|5     |LUT3   |  2236|
-|6     |LUT4   |  2314|
-|7     |LUT5   |   814|
-|8     |LUT6   |  1709|
-|9     |MUXF7  |    28|
+|2     |CARRY4 |  1392|
+|3     |LUT1   |   411|
+|4     |LUT2   |  1552|
+|5     |LUT3   |  2256|
+|6     |LUT4   |  2353|
+|7     |LUT5   |   781|
+|8     |LUT6   |  1696|
+|9     |MUXF7  |    29|
 |10    |MUXF8  |     1|
 |11    |FDCE   |   694|
 |12    |FDPE   |    22|
@@ -500,29 +501,29 @@ Report Cell Usage:
 |17    |OBUFT  |     3|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:36 . Memory (MB): peak = 1609.023 ; gain = 672.559
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:01:03 . Memory (MB): peak = 1608.660 ; gain = 672.754
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 7 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:35 . Memory (MB): peak = 1609.023 ; gain = 572.895
-Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:36 . Memory (MB): peak = 1609.023 ; gain = 672.559
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:01:00 . Memory (MB): peak = 1608.660 ; gain = 569.734
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:01:03 . Memory (MB): peak = 1608.660 ; gain = 672.754
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.124 . Memory (MB): peak = 1609.023 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1452 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.128 . Memory (MB): peak = 1612.527 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1445 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1609.023 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1616.250 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 23 instances were transformed.
   LD => LDCE: 23 instances
 
-Synth Design complete | Checksum: efbd977f
+Synth Design complete | Checksum: 9cdd4578
 INFO: [Common 17-83] Releasing license: Synthesis
-69 Infos, 77 Warnings, 45 Critical Warnings and 0 Errors encountered.
+69 Infos, 76 Warnings, 45 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:41 . Memory (MB): peak = 1609.023 ; gain = 1067.445
+synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:01:09 . Memory (MB): peak = 1616.250 ; gain = 1074.566
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1609.023 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.039 . Memory (MB): peak = 1616.250 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.runs/synth_1/top.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Dec 15 15:16:09 2024...
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 15 16:26:36 2024...

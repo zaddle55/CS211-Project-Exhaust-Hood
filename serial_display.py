@@ -56,7 +56,7 @@ def update(status, set_state_c, set_position, aval, light, alert, sys_time, work
     bg_color = "misty rose" if alert else "beige"
 
     root.config(bg=bg_color)
-    
+
     # 更新系统时间显示
     sys_time_label.config(text=f"系统时间: {sys_time}")
     sys_time_label.config(bg=bg_color)
@@ -306,7 +306,7 @@ def upd():
                 set_state_c = (data[1] & 0b00110000)>>4
                 r_input = [0 for _ in range(18)]
                 r_input[0] = power
-                update(status, set_state_c, set_position, gear3_aval, light, alert, sys_time, work_time, timer/100, alert_time, check_time, r_input, "testtesttest\ntesttesttest\n1754761248152487\nkjbfkjvbsvbl")
+                update(status, set_state_c, set_position, gear3_aval, light, alert, sys_time, work_time, timer/100, alert_time, check_time, r_input, "")
             else:
                 time.sleep(0.002)
 
