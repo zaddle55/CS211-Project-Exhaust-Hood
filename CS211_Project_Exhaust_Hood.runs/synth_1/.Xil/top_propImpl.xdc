@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc rfile:../../../CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/constrs_1/imports/new/CS211_Project.xdc rfile:../../../CS211_Project_Exhaust_Hood.srcs/constrs_1/imports/new/CS211_Project.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property IOSTANDARD LVCMOS33 [get_ports {gear_button[2]}]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]

@@ -8,7 +8,7 @@ import serial
 import time
 
 # 配置串口参数
-serial_port = 'COM4'  # 串口名称
+serial_port = 'COM6'  # 串口名称
 baud_rate = 9600      # 波特率
 
 # 检测可用串口
@@ -141,12 +141,12 @@ def update(status, set_state_c, set_position, aval, light, alert, sys_time, work
 
 def get_button_states(status, input):
     # 定义17个按钮的初始状态，值为0，表示所有按键最初不可用
-    button_states = [0] * 17
+    button_states = [0] * 18
 
     # 按钮可用性字典 TODO: update this
     available_buttons = {
         0: [0, 10],  # 关机状态: 电源、左
-        1: [0, 1, 11, 12, 14, 15, 16],  # 待机状态: 电源、右、时间设置、菜单
+        1: [0, 1, 11, 12, 14, 15, 16, 17],  # 待机状态: 电源、右、时间设置、菜单
         2: [2, 5, 6, 7, 3, 13],  # 待机菜单: 自清洁、一级档位、二级档位、三级档位、手动清洗、高级设置
         3: [],  # 自清洁模式: 所有按键不可用
         4: [1, 6],  # 风力一级档位: 菜单、二级档位
@@ -165,7 +165,7 @@ def get_button_states(status, input):
 
     available = list(set(available))
 
-    for i in range(17):
+    for i in range(18):
         if input[i] == 1:  # 如果按钮被按下
             button_states[i] = 2
         elif i in available:  # 如果按钮可用
@@ -234,11 +234,11 @@ buttons = []
 button_names = [
     "电源 (P)", "菜单 (Space)", "自清洁 (C)", "手动清洗 (R)", "照明 (L)", 
     "一级档位 (1)", "二级档位 (2)", "三级档位 (3)", "上 (W)", "下 (S)", 
-    "左 (A)", "右 (D)", "时间设置/退出查看 (N)", "高级设置 (E)", "[查] 累计工作时间 (O)", 
-    "[设/查] 最大工作时间 (V)", "[设/查] 手势检查时间 (X)"
+    "左 (A)", "右 (D)", "退出查看 (M)", "高级设置 (E)", "[查] 累计工作时间 (O)", 
+    "[设/查] 最大工作时间 (V)", "[设/查] 手势检查时间 (X)", "时间设置 (N)"
 ]
 
-for i in range(17):
+for i in range(18):
     btn = tk.Label(right_frame, text=button_names[i], font=("Arial", 12), bg="lightgreen", width=18, height=2, anchor='center')
     row = i
     if i>=8:
@@ -304,9 +304,8 @@ def upd():
                 check_time = data[23]+(data[22]<<8)+(data[21]<<16)+(data[20]<<24)
                 set_position = (data[1] & 0b11000000)>>6
                 set_state_c = (data[1] & 0b00110000)>>4
-                r_input = [0 for _ in range(17)]
+                r_input = [0 for _ in range(18)]
                 r_input[0] = power
-                r_input[4] = light
                 update(status, set_state_c, set_position, gear3_aval, light, alert, sys_time, work_time, timer/100, alert_time, check_time, r_input, "testtesttest\ntesttesttest\n1754761248152487\nkjbfkjvbsvbl")
             else:
                 time.sleep(0.002)

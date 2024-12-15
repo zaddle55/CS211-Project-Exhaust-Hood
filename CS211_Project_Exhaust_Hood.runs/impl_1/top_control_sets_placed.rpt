@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1.1 (win64) Build 5094488 Fri Jun 14 08:59:21 MDT 2024
-| Date         : Sun Dec 15 14:02:04 2024
+| Date         : Sun Dec 15 15:16:41 2024
 | Host         : Zaddle-00PCIR running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    42 |
-|    Minimum number of control sets                        |    42 |
+| Total control sets                                       |    43 |
+|    Minimum number of control sets                        |    43 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   152 |
+| Unused register locations in slices containing registers |   161 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,8 +39,8 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    42 |
-| >= 0 to < 4        |    18 |
+| Total control sets |    43 |
+| >= 0 to < 4        |    19 |
 | >= 4 to < 6        |     3 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |    12 |
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              35 |           25 |
-| No           | No                    | Yes                    |             354 |          139 |
+| No           | No                    | No                     |              36 |           27 |
+| No           | No                    | Yes                    |             360 |          137 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              99 |           22 |
-| Yes          | No                    | Yes                    |             360 |          117 |
+| Yes          | No                    | No                     |              99 |           25 |
+| Yes          | No                    | Yes                    |             360 |          127 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -73,48 +73,49 @@ Table of Contents
 +-----------------------------------------------------------+-----------------------------------------------------+--------------------+------------------+----------------+--------------+
 |                        Clock Signal                       |                    Enable Signal                    |  Set/Reset Signal  | Slice Load Count | Bel Load Count | Bels / Slice |
 +-----------------------------------------------------------+-----------------------------------------------------+--------------------+------------------+----------------+--------------+
-|  translator/ps2_reader_inst/output_grp_n__0[8]            |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/next_output_state_reg_i_2_n_0 |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[7]            |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[12]           |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[14]           |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[5]            |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[15]           |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[0]            |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[13]           |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[3]            |                                                     |                    |                1 |              1 |         1.00 |
 |  translator/ps2_reader_inst/output_grp_n__0[1]            |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[21]           |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[6]            |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[10]           |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[9]            |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[19]           |                                                     |                    |                1 |              1 |         1.00 |
-|  translator/ps2_reader_inst/output_grp_n__0[2]            |                                                     |                    |                1 |              1 |         1.00 |
 |  translator/ps2_reader_inst/output_grp_n__0[4]            |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[2]            |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[6]            |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[12]           |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[21]           |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[15]           |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[13]           |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[10]           |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/next_output_state_reg_i_2_n_0 |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[5]            |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[8]            |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[14]           |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[0]            |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[20]           |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[19]           |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[3]            |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[7]            |                                                     |                    |                1 |              1 |         1.00 |
+|  translator/ps2_reader_inst/output_grp_n__0[9]            |                                                     |                    |                1 |              1 |         1.00 |
+|  main/state_machine_inst/nxt_status_reg[3]_i_2_n_0        |                                                     |                    |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG                                            | main/my_output_inst/uart_tx_inst/bit_cnt[3]_i_1_n_0 | display_handle/rst |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG                                            | translator/ps2_data_inst/sampling                   | display_handle/rst |                1 |              4 |         4.00 |
-|  main/state_machine_inst/nxt_status_reg[3]_i_2_n_0        |                                                     |                    |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG                                            | main/my_output_inst/uart_tx_inst/bit_cnt[3]_i_1_n_0 | display_handle/rst |                2 |              4 |         2.00 |
 |  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[7][7]_i_1_n_0         |                    |                3 |              8 |         2.67 |
-|  clk_IBUF_BUFG                                            | main/my_output_inst/tx_valid_reg_n_0                | display_handle/rst |                5 |              8 |         1.60 |
-|  clk_IBUF_BUFG                                            | main/my_output_inst/cur_data[7]_i_1_n_0             | display_handle/rst |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[5][7]_i_1_n_0         |                    |                2 |              8 |         4.00 |
 |  clk_IBUF_BUFG                                            | main/my_output_inst/uart_tx_inst/tx_done_reg_0[0]   | display_handle/rst |                3 |              8 |         2.67 |
-|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[4][7]_i_1_n_0         |                    |                2 |              8 |         4.00 |
-|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[6][7]_i_1_n_0         |                    |                1 |              8 |         8.00 |
-|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[0][7]_i_1_n_0         |                    |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG                                            | main/my_output_inst/cur_data[7]_i_1_n_0             | display_handle/rst |                3 |              8 |         2.67 |
 |  clk_IBUF_BUFG                                            | translator/ps2_data_inst/ready_reg_0                | display_handle/rst |                5 |              8 |         1.60 |
-|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[3][7]_i_1_n_0         |                    |                1 |              8 |         8.00 |
-|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[2][7]_i_1_n_0         |                    |                2 |              8 |         4.00 |
-|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[5][7]_i_1_n_0         |                    |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[0][7]_i_1_n_0         |                    |                1 |              8 |         8.00 |
 |  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[1][7]_i_1_n_0         |                    |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[3][7]_i_1_n_0         |                    |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[2][7]_i_1_n_0         |                    |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[6][7]_i_1_n_0         |                    |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG                                            | translator/ps2_data_inst/fifo[4][7]_i_1_n_0         |                    |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG                                            | main/my_output_inst/tx_valid_reg_n_0                | display_handle/rst |                3 |              8 |         2.67 |
 |  clk_IBUF_BUFG                                            |                                                     |                    |                6 |             13 |         2.17 |
-|  display_handle/freq_div_inst/CLK                         |                                                     | display_handle/rst |               15 |             26 |         1.73 |
+|  display_handle/freq_div_inst/CLK                         |                                                     | display_handle/rst |               14 |             26 |         1.86 |
+|  clk_IBUF_BUFG                                            | main/interval                                       | display_handle/rst |               13 |             32 |         2.46 |
+|  clk_IBUF_BUFG                                            | main/check_time                                     | display_handle/rst |               11 |             32 |         2.91 |
 |  clk_IBUF_BUFG                                            | main/state_machine_inst/timer_tick_reg[0]           | display_handle/rst |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG                                            | main/check_time                                     | display_handle/rst |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG                                            | main/interval_0                                     | display_handle/rst |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG                                            | main/systime[31]_i_1_n_0                            | display_handle/rst |               17 |             32 |         1.88 |
+|  clk_IBUF_BUFG                                            | main/systime[31]_i_1_n_0                            | display_handle/rst |               14 |             32 |         2.29 |
 |  clk_IBUF_BUFG                                            | rst_IBUF                                            |                    |                9 |             35 |         3.89 |
-|  clk_IBUF_BUFG                                            | main/my_output_inst/uart_tx_inst/E[0]               | display_handle/rst |               57 |            192 |         3.37 |
-|  clk_IBUF_BUFG                                            |                                                     | display_handle/rst |              124 |            328 |         2.65 |
+|  clk_IBUF_BUFG                                            | main/my_output_inst/uart_tx_inst/E[0]               | display_handle/rst |               65 |            192 |         2.95 |
+|  clk_IBUF_BUFG                                            |                                                     | display_handle/rst |              123 |            334 |         2.72 |
 +-----------------------------------------------------------+-----------------------------------------------------+--------------------+------------------+----------------+--------------+
 
 

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.runs/synth_1/top.tcl"
+  variable script "C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.runs/synth_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,24 +56,26 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 5
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.cache/wt [current_project]
-set_property parent.project_path C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.cache/wt [current_project]
+set_property parent.project_path C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.cache/ip [current_project]
+set_property ip_output_repo c:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_code.v
-  C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/ps2_input.v
-  C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/sources_1/imports/new/CS211_Project.v
+  C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_code.v
+  C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/ps2_input.v
+  C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/sources_1/imports/new/CS211_Project.v
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -84,10 +86,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc
-set_property used_in_implementation false [get_files C:/Users/Administrator/Documents/Xilinx/CS211_v20241215/CS211_v20241215.srcs/constrs_1/imports/new/CS211_Project.xdc]
+read_xdc C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/constrs_1/imports/new/CS211_Project.xdc
+set_property used_in_implementation false [get_files C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/constrs_1/imports/new/CS211_Project.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Users/Administrator/Documents/Xilinx/CS211_Project_Exhaust_Hood/CS211_Project_Exhaust_Hood.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

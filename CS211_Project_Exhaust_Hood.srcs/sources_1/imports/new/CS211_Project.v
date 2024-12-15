@@ -90,6 +90,8 @@ module top(
     wire            disp_int_button;       // button for interval lookup
     wire            disp_ct_button;        // button for checktime lookup
     wire            set_clk_button;        // clock setting button
+    wire            disp_clk_btn;          // display clock button
+    wire            press_light_button;    // if light button is pressed
     wire            left_button;
     wire            right_button;
     wire [31:0]     output_grp;
@@ -104,6 +106,7 @@ module top(
     wire toggle_up_button = output_grp[W];
     wire toggle_down_button = output_grp[S];
     wire toggle_set_clk_button = output_grp[N];
+
     assign clean_button    = output_grp[C];
     assign gear_button     = output_grp[THREE:ONE];
     assign toggle_light_button    = output_grp[L];
@@ -112,6 +115,7 @@ module top(
     assign disp_wt_button  = output_grp[O];
     assign disp_ct_button  = output_grp[X];
     assign disp_int_button = output_grp[V];
+    assign disp_clk_btn    = output_grp[M];
     wire [1:0] power_button_state;
     wire power_button_rise;
     assign power_button    = power_button_state[1];
@@ -152,6 +156,13 @@ module top(
         .clk(clk),
         .rst(rst),
         .toggle(toggle_light_button),
+        .state(),
+        .rise(press_light_button)
+    );
+    handle_toggle light_press_toggle(
+        .clk(clk),
+        .rst(rst),
+        .toggle(press_light_button),
         .state(light_button),
         .rise()
     );
@@ -238,6 +249,7 @@ module top(
         .set_int_button(disp_int_button),
         .set_ct_button(disp_ct_button),
         .set_clk_button(set_clk_button),
+        .disp_clk_btn(disp_clk_btn),
         .add_button(up_button),
         .sub_button(down_button),
         .left_button(left_button),
@@ -266,7 +278,7 @@ module top(
         .fsm_state(status),
 
         .clk_time(systime),
-        .disp_clk_btn(set_clk_button | menu_button),
+        .disp_clk_btn(set_clk_button | menu_button | disp_clk_btn),
 
         .worktime(worktime),
         .disp_wt_btn(disp_wt_button),
@@ -358,7 +370,7 @@ module handle_display (
             disp_state_c <= disp_state_n;
         end
     end
-    
+
     wire [3:0] clk_hour_h;
     wire [3:0] clk_hour_l;
     wire [3:0] clk_minute_h;
@@ -796,6 +808,7 @@ module CS211_Project(
     input           set_int_button ,
     input           set_ct_button ,
     input           set_clk_button ,
+    input           disp_clk_btn ,
     input           add_button ,
     input           sub_button ,
     input           left_button ,
@@ -1123,7 +1136,7 @@ module CS211_Project(
                 if (menu_button | (cur_status != 4'b1000)) begin
                     set_state_n = SET_STATE_IDLE;
                 end
-                else if (set_clk_button) begin
+                else if (disp_clk_btn) begin
                     set_state_n = SET_STATE_NORM;
                 end
                 else begin
@@ -1134,7 +1147,7 @@ module CS211_Project(
                 if (menu_button | (cur_status != 4'b1000)) begin
                     set_state_n = SET_STATE_IDLE;
                 end
-                else if (set_clk_button) begin
+                else if (disp_clk_btn) begin
                     set_state_n = SET_STATE_NORM;
                 end
                 else begin
@@ -1155,6 +1168,15 @@ module CS211_Project(
         end
         else begin
             case (set_state_c)
+                SET_STATE_IDLE: begin
+                    if (cur_status == 4'b0010 && reset_button) begin  // reset to default
+                        interval <= DEFAULT_INTERVAL;
+                        check_time <= DEFAULT_CHECK_TIME;
+                    end else begin
+                        interval <= interval;
+                        check_time <= check_time;
+                    end
+                end
                 SET_STATE_INT: begin
                     if (add_button) begin
                         case(set_position)
@@ -1284,7 +1306,7 @@ module state_machine(
             nxt_worktime = 32'b0;
             nxt_worktick = 32'b0;
         end
-        else if (cur_status == GEAR1 || cur_status == GEAR2 || cur_status == GEAR3) begin
+        else if (cur_status == GEAR1 || cur_status == GEAR2 || cur_status == GEAR3 || cur_status == FORCED) begin
             if (cur_worktick == TICKS_PER_SECOND - 1) begin
                 nxt_worktime = cur_worktime + 1;
                 nxt_worktick = 32'b0;

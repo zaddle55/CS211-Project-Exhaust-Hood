@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1.1 (win64) Build 5094488 Fri Jun 14 08:59:21 MDT 2024
-| Date         : Sun Dec 15 14:02:20 2024
+| Date         : Sun Dec 15 15:16:58 2024
 | Host         : Zaddle-00PCIR running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file top_timing_summary_routed.rpt -pb top_timing_summary_routed.pb -rpx top_timing_summary_routed.rpx -warn_on_violation
 | Design       : top
@@ -43,8 +43,8 @@ Timing Summary Report
 
 Rule       Severity          Description                     Violations  
 ---------  ----------------  ------------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell     826         
-TIMING-20  Warning           Non-clocked latch               22          
+TIMING-17  Critical Warning  Non-clocked sequential cell     832         
+TIMING-20  Warning           Non-clocked latch               23          
 LATCH-1    Advisory          Existing latches in the design  1           
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
@@ -55,10 +55,10 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (1238)
+1. checking no_clock (1252)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (2021)
+4. checking unconstrained_internal_endpoints (2034)
 5. checking no_input_delay (3)
 6. checking no_output_delay (32)
 7. checking multiple_clock (0)
@@ -68,9 +68,9 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (1238)
+1. checking no_clock (1252)
 ---------------------------
- There are 800 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+ There are 806 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
  There are 26 register/latch pins with no clock driven by root clock pin: display_handle/freq_div_inst/clk_div_reg/Q (HIGH)
 
@@ -208,21 +208,21 @@ Table of Contents
 
  There are 4 register/latch pins with no clock driven by root clock pin: power_on_toggle/rise_reg/Q (HIGH)
 
- There are 18 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[0]/Q (HIGH)
+ There are 19 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[0]/Q (HIGH)
 
- There are 18 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[1]/Q (HIGH)
+ There are 19 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[1]/Q (HIGH)
 
- There are 18 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[2]/Q (HIGH)
+ There are 19 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[2]/Q (HIGH)
 
- There are 18 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[3]/Q (HIGH)
+ There are 19 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[3]/Q (HIGH)
 
- There are 18 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[4]/Q (HIGH)
+ There are 19 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[4]/Q (HIGH)
 
- There are 18 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[5]/Q (HIGH)
+ There are 19 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[5]/Q (HIGH)
 
- There are 18 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[6]/Q (HIGH)
+ There are 19 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[6]/Q (HIGH)
 
- There are 18 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[7]/Q (HIGH)
+ There are 19 register/latch pins with no clock driven by root clock pin: translator/ps2_reader_inst/data_reg_reg[7]/Q (HIGH)
 
 
 2. checking constant_clock (0)
@@ -235,9 +235,9 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (2021)
+4. checking unconstrained_internal_endpoints (2034)
 ---------------------------------------------------
- There are 2021 pins that are not constrained for maximum delay. (HIGH)
+ There are 2034 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
