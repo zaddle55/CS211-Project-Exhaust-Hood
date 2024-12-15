@@ -28,8 +28,8 @@ for port, desc, hwid in sorted(ports):
         pass
 
 # 确保串口打开
-if ser.is_open:
-    print(f"串口 {serial_port} 已打开, 波特率 {baud_rate}")
+# if ser.is_open:
+#   print(f"串口 {serial_port} 已打开, 波特率 {baud_rate}")
 
 def get_status_name(status):
     status_names = {
@@ -232,7 +232,7 @@ right_frame.pack(side=tk.RIGHT, fill=tk.BOTH)
 # 生成按钮矩形
 buttons = []
 button_names = [
-    "电源 (P)", "菜单 (Space)", "自清洁 (C)", "手动清洗 (R)", "照明 (L)", 
+    "电源 (P)", "菜单 (Space)", "自清洁 (C)", "恢复出厂模式 (R)", "照明 (L)", 
     "一级档位 (1)", "二级档位 (2)", "三级档位 (3)", "上 (W)", "下 (S)", 
     "左 (A)", "右 (D)", "退出查看 (M)", "高级设置 (E)", "[查] 累计工作时间 (O)", 
     "[设/查] 最大工作时间 (V)", "[设/查] 手势检查时间 (X)", "时间设置 (N)"
