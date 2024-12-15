@@ -28,8 +28,8 @@ for port, desc, hwid in sorted(ports):
         pass
 
 # 确保串口打开
-# if ser.is_open:
-#   print(f"串口 {serial_port} 已打开, 波特率 {baud_rate}")
+if ser.is_open:
+    print(f"串口 {serial_port} 已打开, 波特率 {baud_rate}")
 
 def get_status_name(status):
     status_names = {
@@ -143,7 +143,7 @@ def get_button_states(status, input):
     # 定义17个按钮的初始状态，值为0，表示所有按键最初不可用
     button_states = [0] * 18
 
-    # 按钮可用性字典 TODO: update this
+    # 按钮可用性字典
     available_buttons = {
         0: [0, 10],  # 关机状态: 电源、左
         1: [0, 1, 11, 12, 14, 15, 16, 17],  # 待机状态: 电源、右、时间设置、菜单
