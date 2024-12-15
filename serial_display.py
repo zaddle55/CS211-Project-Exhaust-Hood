@@ -8,7 +8,7 @@ import serial
 import time
 
 # 配置串口参数
-serial_port = 'COM6'  # 串口名称
+serial_port = 'COM4'  # 串口名称
 baud_rate = 9600      # 波特率
 
 # 检测可用串口
