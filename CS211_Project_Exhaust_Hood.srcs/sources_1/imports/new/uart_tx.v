@@ -35,24 +35,24 @@ module uart_output #
 
     reg	[(BYTES*8-1):0] data_reg;
     reg                 tx_busy;
-    reg	[7:0]           byte_cnt;
-    reg	[7:0]           cur_data;
-    reg                 tx_valid;
-    reg                 uart_bytes_done_reg;
-    reg                 uart_sing_done_reg;
+    reg	[7:0]           byte_cnt;   // bytes have been sent
+    reg	[7:0]           cur_data;   // byte to be sent
+    reg                 tx_valid;   // control signal of tx
+    reg                 bytes_done; // all bytes have been sent
+    reg                 sing_done;  // the current byte has been sent
 
     wire				tx_done;
-    assign output_done = uart_bytes_done_reg;
+    assign output_done = bytes_done;
 
-    // data register update
+    // data register
     always @(posedge clk or negedge rst)begin
         if(!rst) data_reg <= 0;
         else if(data_valid && ~tx_busy) data_reg <= data;
-        else if(tx_done) data_reg <= data_reg >> 8;
+        else if(tx_done) data_reg <= data_reg >> 8; // right shift to send the next byte
         else data_reg <= data_reg;
     end
 
-    // data valid & tx_busy update
+    // busy signal
     always @(posedge clk or negedge rst)begin
         if(!rst) tx_busy <= 1'b0;
         else if(data_valid && ~tx_busy) tx_busy <= 1'b1;
@@ -60,35 +60,33 @@ module uart_output #
         else tx_busy <= tx_busy;
     end
 
-    // byte ptr update
+    // byte counter
     always @(posedge clk or negedge rst)begin
         if(!rst) byte_cnt <= 0;
         else if(tx_busy)begin
-            if(tx_done && byte_cnt == BYTES - 1)
-                byte_cnt <= 0;
-            else if(tx_done)
-                byte_cnt <= byte_cnt + 1'b1;
+            if(tx_done && byte_cnt == BYTES - 1) byte_cnt <= 0; // all bytes have been sent
+            else if(tx_done) byte_cnt <= byte_cnt + 1'b1; // send the next byte
             else byte_cnt <= byte_cnt;
         end		
         else byte_cnt <= 0;	
     end
 
     always @(posedge clk or negedge rst)begin
-        if(!rst) uart_sing_done_reg <= 0;
-        else uart_sing_done_reg <= tx_done;	
+        if(!rst) sing_done <= 0;
+        else sing_done <= tx_done;
     end
 
-    // ���͵����ֽڵ�����
+    // send single byte
     always @(posedge clk or negedge rst)begin
         if(!rst) begin
             cur_data <= 8'd0;
             tx_valid <= 1'b0;
         end
-        else if(data_valid && ~tx_busy) begin // update data
+        else if(data_valid && ~tx_busy) begin // start: send the first byte
             cur_data <= data[7:0];
             tx_valid <= 1'b1;
         end
-        else if(uart_sing_done_reg) begin
+        else if(sing_done) begin // send the next byte (after right shift)
             cur_data <= data_reg[7:0];
             if (tx_busy) tx_valid <= 1'b1;
             else tx_valid <= 1'b0;
@@ -99,11 +97,11 @@ module uart_output #
         end
     end
 
-    //done�ź�
+    // all done signal
     always @(posedge clk or negedge rst)begin
-        if(!rst) uart_bytes_done_reg <= 1'b0;
-        else if(tx_done && byte_cnt == BYTES - 1) uart_bytes_done_reg <= 1'b1;
-        else uart_bytes_done_reg <= 1'b0;
+        if(!rst) bytes_done <= 1'b0;
+        else if(tx_done && byte_cnt == BYTES - 1) bytes_done <= 1'b1;
+        else bytes_done <= 1'b0;
     end
 
     uart_tx uart_tx_inst(
@@ -141,6 +139,7 @@ module uart_tx(
         else data_reg <= data_reg;
     end
 
+    // tx state
     always @(posedge clk or negedge rst)begin
         if(!rst) tx_state <= 1'b0;
         else if(data_valid) tx_state <= 1'b1;
@@ -148,6 +147,7 @@ module uart_tx(
         else tx_state <= tx_state;
     end
 
+    // done signal
     always @(posedge clk or negedge rst) begin
         if(!rst) tx_done <=1'b0;
         else if((bit_cnt == 9) && (clk_cnt == BPS_CNT - 1'b1)) tx_done <=1'b1;
@@ -160,13 +160,13 @@ module uart_tx(
             bit_cnt <= 4'd0;
         end
         else if(tx_state) begin
-            if(clk_cnt < BPS_CNT - 1'd1) begin
+            if(clk_cnt < BPS_CNT - 1'd1) begin // wait for the clock
                 clk_cnt <= clk_cnt + 1'b1;
                 bit_cnt <= bit_cnt;
             end
-            else begin
+            else begin // send the next bit
                 clk_cnt <= 32'd0;
-                bit_cnt <= bit_cnt+1'b1;
+                bit_cnt <= bit_cnt + 1'b1;
             end
         end
         else begin
