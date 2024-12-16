@@ -48,7 +48,7 @@ module handle_display (
     input [2:0]         gear_button,
     input               clean_button,
 
-    output reg [2:0]    disp_state,
+    output [2:0]        disp_state,
     output [7:0]        seg_left,
     output [7:0]        seg_right,
     output [3:0]        sel_left,
@@ -295,6 +295,7 @@ module handle_display (
         .rst(rst),
         .clk_div(clk_div)
     );
+    assign disp_state = disp_state_c;
 
     // -- segment display -- //
 

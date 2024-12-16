@@ -49,7 +49,7 @@ def get_status_name(status):
 bg_color = "beige"
 
 # 更新函数
-def update(status, set_state_c, set_position, aval, light, alert, sys_time, work_time, timer, alert_time, check_time, input, notes):
+def update(status, disp_state_o, set_state_c, set_position, aval, light, alert, sys_time, work_time, timer, alert_time, check_time, input, notes):
     # 设置背景颜色
     bg_color = "misty rose" if alert else "beige"
 
@@ -105,6 +105,20 @@ def update(status, set_state_c, set_position, aval, light, alert, sys_time, work
     _set_label.config(text=f"高级设置当前项: {set_state_string}")
     _set_label.config(bg=bg_color)
 
+    disp_state_o_string = "无"
+    if disp_state_o == 0:
+        disp_state_o_string = "系统时间"
+    if disp_state_o == 1:
+        disp_state_o_string = "最大工作时间"
+    if disp_state_o == 2:
+        disp_state_o_string = "累计工作时间"
+    if disp_state_o == 3:
+        disp_state_o_string = "手势检查时间"
+    if disp_state_o == 4:
+        disp_state_o_string = "倒计时"
+    disp_state_label.config(text=f"七段数码管显示状态: {disp_state_o_string}")
+    disp_state_label.config(bg=bg_color)
+
     work_lim = 0
     cur_work_tim = 0
     if(status == 3):
@@ -118,8 +132,6 @@ def update(status, set_state_c, set_position, aval, light, alert, sys_time, work
     timer_label.config(bg=bg_color)
     cur_progress['value'] = (cur_work_tim / work_lim) * 100 if work_lim > 0 else 0
 
-
-    # 更新备注
     notes_text.config(state=tk.NORMAL)
     notes_text.delete(1.0, tk.END)
     notes_text.insert(tk.END, notes)
@@ -127,7 +139,7 @@ def update(status, set_state_c, set_position, aval, light, alert, sys_time, work
     notes_text.config(bg=bg_color)
 
     # 更新按钮
-    button_states = get_button_states(status, input)
+    button_states = get_button_states(status, input, aval, set_state_c, disp_state_o)
     for i, btn in enumerate(buttons):
         state = button_states[i]
         if state == 1:
@@ -148,28 +160,42 @@ button_row = [0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,8,9,8]
 button_col = [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0]
 num_buttons = len(button_names)
 
-def get_button_states(status, input):
+def get_button_states(status, input, gear3_aval, set_state_c, disp_state_o):
     button_states = [0] * num_buttons
 
     # 按钮可用性字典
     available_buttons = {
         0: [0, 10],  # 关机状态: 电源、左
-        1: [0, 1, 11, 12, 14, 15, 16, 17],  # 待机状态: 电源、右、时间设置、菜单、[查] 累计工作时间、[查] 最大工作时间、[查] 手势检查时间、确认
-        2: [2, 5, 6, 7, 3, 13, 19],  # 待机菜单: 自清洁、一级档位、二级档位、三级档位、高级设置、手动清洁、出厂设置
+        1: [0, 1, 11, 17],  # 待机状态: 电源、右、时间设置、菜单、[查] 累计工作时间、[查] 最大工作时间、[查] 手势检查时间、确认（查看时可用）
+        2: [2, 5, 6, 3, 13, 18],  # 待机菜单: 自清洁、一级档位、二级档位、三级档位（可用时显示）、高级设置、手动清洁、出厂设置
         3: [],  # 自清洁模式: 所有按键不可用
         4: [1, 6],  # 风力一级档位: 菜单、二级档位
         5: [1, 5],  # 风力二级档位: 菜单、一级档位
         6: [1],  # 风力三级档位: 菜单
         7: [],  # 飓风强制待机模式: 所有按键不可用
-        8: [1, 15, 16, 12],  # 高级设置模式: 菜单、[设] 最大工作时间、[设] 手势检查时间、确认
+        8: [1],  # 高级设置模式: 菜单、[设] 最大工作时间、[设] 手势检查时间、确认（设置时可用）
         9: [11],  # 开机检查状态: 右
         10: [10],  # 关机检查状态: 左
-        11: [1, 8, 9, 10, 11],  # 时间设置: 上、下
+        11: [1, 8, 9, 10, 11],  # 时间设置: 上、下、左、右、菜单
     }
 
     available = available_buttons.get(status, [])
     if status != 0 and status != 9:
-        available.extend([4])  # 照明始终可用
+        available.extend([4])  # 不关机，照明始终可用
+    if status == 1:
+        if disp_state_o == 0:
+            available.extend([14,15,16])
+        if (disp_state_o >= 1 and disp_state_o <= 3):
+            available.extend([12])
+
+
+    if status == 2 and gear3_aval:
+        available.extend([7])
+    if status == 8:
+        if set_state_c == 1:
+            available.extend([15, 16])
+        if set_state_c >= 2:
+            available.extend([12])
 
     available = list(set(available))
 
@@ -223,6 +249,9 @@ time_set_label.pack(fill=tk.X)
 _set_label = tk.Label(left_frame, text="高级设置当前项: 无", font=("Arial", 14), height=2, bg=bg_color)
 _set_label.pack(fill=tk.X)
 
+disp_state_label = tk.Label(left_frame, text="七段数码管显示状态: 无", font=("Arial", 14), height=2, bg=bg_color)
+disp_state_label.pack(fill=tk.X)
+
 timer_label = tk.Label(left_frame, text="当前工作进度条 (0/0)", font=("Arial", 14), bg=bg_color)
 timer_label.pack(fill=tk.X)
 
@@ -260,17 +289,24 @@ def upd():
                 # 第四个字节：无效信息
                 # 接着4个字节系统时间，接着4个字节工作时间，接着4个字节 timer，接着4个字节 alert_time，接着4个字节 check_time
                 # --------------------------------------------------------------
-                # 第1字节       status(4bit)      状态信息（前4个二进制位）
-                #               light(1bit)       光信号（接下来的1个二进制位）
-                #               alert(1bit)       警报信号（接下来的1个二进制位）
-                #               gear3_aval(1bit)  三档位可用（接下来的1个二进制位）
-                #               空闲(1bit)        无意义
-                # 第2字节       无效信息          无意义
-                # 第3字节       无效信息          无意义
+                # 第1字节       status(4bit)      状态信息
+                #               light(1bit)       照明信号
+                #               alert(1bit)       警报信号
+                #               gear3_aval(1bit)  三档位可用
+                #               power(1bit)       电源按下状态
+                # 第2字节       set_ptr(2bit)     时间设置指针
+                #               set_state_c(2bit) 高级设置状态
+                #               disp_state_o(3bit) 七段数码管显示状态
+                #               menu_state(1bit)   菜单按钮按下状态
+                # 第3字节       left_state(1bit)  左按钮按下状态
+                #               right_state(1bit) 右按钮按下状态
+                #               up_state(1bit)    上按钮按下状态
+                #               down_state(1bit)  下按钮按下状态
+                #               无效信息(4bit)    无意义
                 # 第4字节       无效信息          无意义
                 # 第5-8字节     系统时间          4字节（32位），系统时间
                 # 第9-12字节    工作时间          4字节（32位），工作时间
-                # 第13-16字节   timer             4字节（32位），定时器信息
+                # 第13-16字节   timer             4字节（32位），当前模式持续时间
                 # 第17-20字节   alert_time        4字节（32位），警报时间
                 # 第21-24字节   check_time        4字节（32位），检查时间
                 print()
@@ -302,9 +338,17 @@ def upd():
                 check_time = data[23]+(data[22]<<8)+(data[21]<<16)+(data[20]<<24)
                 set_position = (data[1] & 0b11000000)>>6
                 set_state_c = (data[1] & 0b00110000)>>4
+                disp_state_o = (data[1] & 0b00001110)>>1
+                menu_state = (data[1] & 0b00000001)
+                print("disp_state_o: ", disp_state_o)
                 r_input = [0 for _ in range(num_buttons)]
                 r_input[0] = power
-                update(status, set_state_c, set_position, gear3_aval, light, alert, sys_time, work_time, timer/100, alert_time, check_time, r_input, "")
+                r_input[1] = menu_state
+                r_input[10] = (data[2] & 0b10000000)>>7
+                r_input[11] = (data[2] & 0b01000000)>>6
+                r_input[8] = (data[2] & 0b00100000)>>5
+                r_input[9] = (data[2] & 0b00010000)>>4
+                update(status, disp_state_o, set_state_c, set_position, gear3_aval, light, alert, sys_time, work_time, timer/100, alert_time, check_time, r_input, "")
             else:
                 time.sleep(0.002)
 
