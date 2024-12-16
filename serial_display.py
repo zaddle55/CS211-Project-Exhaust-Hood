@@ -1,4 +1,5 @@
 import tkinter as tk
+import arcade
 from tkinter import ttk
 from datetime import datetime
 from time import sleep
@@ -10,6 +11,7 @@ import time
 # 配置串口参数
 serial_port = 'COM4'  # 串口名称
 baud_rate = 9600      # 波特率
+audio = arcade.load_sound("error.mp3")
 
 # 检测可用串口
 import serial.tools.list_ports
@@ -274,8 +276,8 @@ for i in range(num_buttons):
     btn.grid(row=row, column=col, padx=10, pady=5)
     buttons.append(btn)
 
-# 测试更新
 
+audio_cnt = 0
 def upd():
     try:
         while True:
@@ -348,6 +350,11 @@ def upd():
                 r_input[11] = (data[2] & 0b01000000)>>6
                 r_input[8] = (data[2] & 0b00100000)>>5
                 r_input[9] = (data[2] & 0b00010000)>>4
+                if alert:
+                    global audio_cnt
+                    audio_cnt += 1
+                    if audio_cnt % 11 == 1:
+                        arcade.play_sound(audio,1.0,-1)
                 update(status, disp_state_o, set_state_c, set_position, gear3_aval, light, alert, sys_time, work_time, timer/100, alert_time, check_time, r_input, "")
             else:
                 time.sleep(0.002)
