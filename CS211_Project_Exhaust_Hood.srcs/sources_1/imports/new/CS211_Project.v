@@ -813,7 +813,7 @@ module state_machine(
     parameter TICKS_PER_SECOND = 100_000_000;
     parameter [31:0] DEFAULT_WAIT_TICKS = TICKS_PER_SECOND;
 
-    // 锟斤拷锟教伙拷状态
+    // status list
     parameter [3:0] OFF         = 4'b0000;   // off
     parameter [3:0] STANDBY     = 4'b0001;   // stand by
     parameter [3:0] MENU        = 4'b0010;   // menu
