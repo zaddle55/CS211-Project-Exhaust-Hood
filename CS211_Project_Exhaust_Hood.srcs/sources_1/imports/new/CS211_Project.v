@@ -264,6 +264,8 @@ module top(
         .disp_clk_btn(disp_clk_btn),
         .add_button(up_button),
         .sub_button(down_button),
+        .add_button_state(up_button_state[1]),
+        .sub_button_state(down_button_state[1]),
         .left_button(left_button),
         .right_button(right_button),
 
@@ -358,6 +360,8 @@ module Exhaust_Hood(
     input           disp_clk_btn ,
     input           add_button ,
     input           sub_button ,
+    input           add_button_state ,
+    input           sub_button_state ,
     input           left_button ,
     input           right_button ,
 
@@ -390,6 +394,8 @@ module Exhaust_Hood(
     wire [31:0] nxt_worktime;
     reg [31:0]  cur_worktick;
     reg [31:0]  power_tick;         // tick of hold time of power button
+    reg [31:0]  add_tick;           // tick of hold time of add button
+    reg [31:0]  sub_tick;           // tick of hold time of sub button
     wire [31:0] nxt_worktick;
     reg [3:0]   cur_status;
     wire [3:0]  nxt_status;
@@ -400,6 +406,20 @@ module Exhaust_Hood(
     wire        nxt_gear3_available;
     reg [31:0]  stable_tick;
     reg [1:0]   set_position;        // ptr for clock setting
+
+    reg         do_add;
+    reg         do_sub;
+    always @(*) begin
+        if(!rst) begin
+            do_add = 1'b0;
+            do_sub = 1'b0;
+        end
+        else begin
+            do_add = add_button || (add_tick >= 50_000_000 && add_tick % 8_000_000 == 0);
+            do_sub = sub_button || (sub_tick >= 50_000_000 && sub_tick % 8_000_000 == 0);
+        end
+    end
+
 
     // state transition & systime update
     always @(posedge clk or negedge rst) begin
@@ -414,10 +434,13 @@ module Exhaust_Hood(
             cur_worktime    <= 32'b0;
             cur_gear3_available <= 1'b1;
             stable_tick     <= 32'b0;
+            power_tick      <= 32'b0;
+            add_tick        <= 32'b0;
+            sub_tick        <= 32'b0;
             set_position    <= 2'b00;
         end
         else begin
-            if (stable_tick == 15_000_000 - 1) begin
+            if (stable_tick == 8_000_000 - 1) begin
                 out_valid <= 1'b1;
                 stable_tick <= 32'b0;
             end
@@ -425,10 +448,21 @@ module Exhaust_Hood(
                 out_valid <= 1'b0;
                 stable_tick <= stable_tick + 1;
             end
+
             if (cur_status == nxt_status && power_button && cur_status <= 1) begin
                 power_tick <= power_tick + 1;
             end
             else power_tick <= 0;
+
+            if (cur_status == nxt_status && add_button_state) begin
+                add_tick <= add_tick + 1;
+            end
+            else add_tick <= 0;
+            if (cur_status == nxt_status && sub_button_state) begin
+                sub_tick <= sub_tick + 1;
+            end
+            else sub_tick <= 0;
+
             if (cur_status == nxt_status) begin
                 if (timer_tick == 1_000_000 - 1) begin
                     timer_tick <= 0;
@@ -475,7 +509,7 @@ module Exhaust_Hood(
 
             // systime update
             else if(cur_status == 4'b1011) begin
-                modify_time(add_button, sub_button);
+                modify_time(do_add, do_sub);
             end
             else begin
                 if (sys_tick == 100_000_000 - 1) begin
@@ -717,7 +751,7 @@ module Exhaust_Hood(
                     end
                 end
                 SET_STATE_INT: begin
-                    if (add_button) begin
+                    if (do_add) begin
                         case(set_position)
                             2'b00: interval <= interval;
                             2'b01: interval <= interval + 1;
@@ -726,7 +760,7 @@ module Exhaust_Hood(
                             default: interval <= interval;
                         endcase
                     end
-                    else if (sub_button) begin
+                    else if (do_sub) begin
                         case(set_position)
                             2'b00: interval <= interval;
                             2'b01: begin
@@ -746,10 +780,10 @@ module Exhaust_Hood(
                     end
                 end
                 SET_STATE_CT: begin
-                    if (add_button) begin
+                    if (do_add) begin
                         check_time <= check_time + 1;
                     end
-                    else if (sub_button) begin
+                    else if (do_sub) begin
                         if (check_time > 0) check_time <= check_time - 1;
                     end
                 end
