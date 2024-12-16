@@ -179,20 +179,24 @@ module top(
         .state(power_button_state),
         .rise(power_button_rise)
     );
+    wire [1:0] left_button_state;
+    wire [1:0] right_button_state;
     handle_toggle power_on_toggle(
         .clk(clk),
         .rst(rst),
         .toggle(toggle_power_on_button),
-        .state(),
+        .state(left_button_state),
         .rise(power_on_button)
     );
     handle_toggle power_off_toggle(
         .clk(clk),
         .rst(rst),
         .toggle(toggle_power_off_button),
-        .state(),
+        .state(right_button_state),
         .rise(power_off_button)
     );
+    wire [1:0] up_button_state;
+    wire [1:0] down_button_state;
     handle_toggle left_toggle(
         .clk(clk),
         .rst(rst),
@@ -211,21 +215,22 @@ module top(
         .clk(clk),
         .rst(rst),
         .toggle(toggle_up_button),
-        .state(),
+        .state(up_button_state),
         .rise(up_button)
     );
     handle_toggle down_toggle(
         .clk(clk),
         .rst(rst),
         .toggle(toggle_down_button),
-        .state(),
+        .state(down_button_state),
         .rise(down_button)
     );
+    wire [1:0] menu_button_state;
     handle_toggle menu_toggle(
         .clk(clk),
         .rst(rst),
         .toggle(toggle_menu_button),
-        .state(),
+        .state(menu_button_state),
         .rise(menu_button)
     );
     handle_toggle set_clk_toggle(
@@ -279,6 +284,7 @@ module top(
         .alert(alert)
     );
 
+    wire [2:0] disp_state_o;
 
     // display handle
     handle_display display_handle(
@@ -304,18 +310,24 @@ module top(
         .gear_button(gear_button),
         .clean_button(clean_button),
 
-        .disp_state(),
+        .disp_state(disp_state_o),
         .seg_left(seg_left),
         .seg_right(seg_right),
         .sel_left(sel_left),
         .sel_right(sel_right)
     );
-
+    wire menu_but_st = menu_button_state[1];
     // UART output instance
     uart_output my_output_inst(
         .clk(clk),
         .rst(rst),
-        .data({status,light,alert,gear3_aval,power_button,set_ptr,set_state,20'd0,systime,worktime,timer,interval,check_time}),
+        .data({
+            status,light,alert,gear3_aval,power_button,
+            set_ptr,set_state,disp_state_o,menu_but_st,
+            left_button_state[1],right_button_state[1],up_button_state[1],down_button_state[1],
+            12'd0,
+            systime,worktime,timer,interval,check_time
+        }),
         .data_valid(out_valid),
         .tx_out(uart_tx)
     );
@@ -543,7 +555,7 @@ module Exhaust_Hood(
     reg [31:0] interval = DEFAULT_INTERVAL;
     reg [31:0] check_time = DEFAULT_CHECK_TIME;
 
-    // ״main state machine
+    // 状main state machine
     state_machine state_machine_inst(
         .power_tick(power_tick),
         .timer(timer),
@@ -623,9 +635,6 @@ module Exhaust_Hood(
 
     reg [1:0] set_state_n = SET_STATE_IDLE;
     reg [1:0] set_state_c = SET_STATE_IDLE;
-
-    // debug output
-    assign debug_set_state = set_state_c;
 
     // state
     always @(posedge clk or negedge rst) begin
@@ -804,7 +813,7 @@ module state_machine(
     parameter TICKS_PER_SECOND = 100_000_000;
     parameter [31:0] DEFAULT_WAIT_TICKS = TICKS_PER_SECOND;
 
-    // ���̻�״̬
+    // 锟斤拷锟教伙拷状态
     parameter [3:0] OFF         = 4'b0000;   // off
     parameter [3:0] STANDBY     = 4'b0001;   // stand by
     parameter [3:0] MENU        = 4'b0010;   // menu
